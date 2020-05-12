@@ -11,5 +11,6 @@ router.get('/test', (request, response) => {
 
 router.get('/users', User.index);
 router.post('/users', User.store);
+router.put('/users', User.update);
 
 export default router;

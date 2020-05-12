@@ -20,6 +20,20 @@ class User {
       name,
     });
   }
+
+  async update(request, response) {
+    const { id, name } = request.body;
+
+    const data = await db('users').where({ id });
+
+    if (!data) {
+      return response.status(200).json({ Request: 'user not found' });
+    }
+
+    await db('users').update({ name }).where({ id });
+
+    return response.status(200).json({ id, name });
+  }
 }
 
 export default new User();
