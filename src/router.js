@@ -10,5 +10,6 @@ router.get('/test', (request, response) => {
 });
 
 router.get('/users', User.index);
+router.post('/users', User.store);
 
 export default router;
